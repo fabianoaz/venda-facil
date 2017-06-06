@@ -1,0 +1,26 @@
+<body>
+<div class="container">
+  <div>
+    <h3 class="jumbotron text-center">Cadastro de Estabelecimento</h3>
+  </div>
+  <div class="form-group">
+    <div>
+      <label for="cnpj">CNPJ*</label>
+      <input class="form-control" type="text" name="cnpj"  id="cnpj" [(ngModel)]="estab.cnpj" [disabled]="bloqueado"/>
+    </div>
+    <div>
+      <label for="ie">Inscrição Estadual*</label>
+      <input class="form-control" type="text" name="ie" [(ngModel)]="estab.ie" [disabled]="bloqueado"/>
+    </div>
+    <div>
+      <label for="nomfan">Nome Fantasia*</label>
+      <input class="form-control" type="text" name="nomfan" [(ngModel)]="estab.nomfan" [disabled]="bloqueado"/>
+    </div>
+    <hr/>
+    <div class="btn-group" style="margin-left: 40%">
+      <button type="button" class="btn btn-primary btn-lg" name="btnSalvar" (click)="alterarEstab()">Alterar</button>
+      <button type="button" class="btn btn-success btn-lg" name="btnAlterar" (click)="salvarEstab()">Salvar</button>      
+    </div>
+  </div>
+</div>
+</body>

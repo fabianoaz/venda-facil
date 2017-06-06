@@ -1,0 +1,56 @@
+<body onload="document.frmCliente.cpf.focus()">
+  <div class="container">
+    <div>
+      <h3 class="jumbotron text-center"> Cadastro de Clientes</h3>
+    </div>
+    <form name="frmCliente">
+      <div style="width:40%; float:left">
+        <div>
+          <label for="cpf">CPF*</label>
+          <input class="form-control" type="text" name="cpf" id="cpf" [(ngModel)]="cliente.cpf" [disabled]="bloqueado">
+        </div>
+        <div>
+          <label for="nome">Nome Completo*</label>
+          <input class="form-control" type="text" name="nome" id="nome" [(ngModel)]="cliente.nome" [disabled]="bloqueado">
+        </div>
+        <div>
+          <label for="end">Endereço*</label>
+          <input class="form-control" type="text" name="end" id="endereco" [(ngModel)]="cliente.endereco" [disabled]="bloqueado">
+        </div>
+        <div>
+          <label for="fone">Telefone*</label>
+          <input class="form-control" type="text" name="fone" id="fone" [(ngModel)]="cliente.telefone" [disabled]="bloqueado">
+        </div>
+      </div>
+      <div style="width:40%; float:left; margin-left: 10%">
+        <table class="table table-striped">
+          <thead>
+            <th>[]</th>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cli of clientes;let i=index">
+              <td>{{i+1}}</td>
+              <td><a (click)="editarCliente(i)">{{cli.cpf}}</a></td>
+              <td><a (click)="editarCliente(i)">{{cli.nome}}</a></td>
+              <td><a (click)="editarCliente(i)">{{cli.endereco}}</a></td>
+              <td><a (click)="editarCliente(i)">{{cli.telefone}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br><br>
+    </form>
+    <br><br>
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-lg" type="button" name="btnNovo" (click)="novoCliente();">Novo</button>
+      <button class="btn btn-success btn-lg" type="button" name="btnSalvar" (click)="salvaCliente();">Salvar</button>
+      <button class="btn btn-warning btn-lg" type="button" name="btnAlterar" (click)="alteraCadastro();">Alterar</button>
+      <button class="btn btn-primary  btn-lg" type="button" name="btnCancelar" (click)="cancelaEdicao();">Cancelar</button>
+      <button class="btn btn-danger  btn-lg" type="button" name="btnExcluir" (click)="excluiCliente();">Excluir</button>
+    </div>
+  </div>
+</body>

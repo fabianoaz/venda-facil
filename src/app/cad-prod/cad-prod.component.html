@@ -1,0 +1,50 @@
+<body onload="document.frmProduto.codigo.focus()">
+  <div class="container">
+    <div>
+      <h3 class="jumbotron text-center">Cadastro de Produtos</h3>
+    </div>
+    <form name="frmProduto">
+      <div style="width:40%; float:left">
+        <div>
+          <label for="codigo">Código*</label>
+          <input class="form-control" type="text" name="codigo" id="cod" [(ngModel)]="produto.codigo" [disabled]="bloqueado">
+        </div>
+        <div>
+          <label for="desc">Descrição*</label>
+          <input class="form-control" type="text" name="desc" id="desc" [(ngModel)]="produto.descricao" [disabled]="bloqueado">
+        </div>
+        <div>
+          <label for="prevnd">Preço de Venda*</label>
+          <input class="form-control" type="text" name="prevnd" id="pv" [(ngModel)]="produto.precovenda" [disabled]="bloqueado">
+        </div>
+      </div>
+      <div style="width:40%; float:left; margin-left: 10%">
+        <table class="table table-striped">
+          <thead>
+            <th>[]</th>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Preço de Venda</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prod of produtos; let i=index">
+              <td>{{i+1}}</td>
+              <td><a (click)="editarProduto(i)">{{prod.codigo}}</a></td>
+              <td><a (click)="editarProduto(i)">{{prod.descricao}}</a></td>
+              <td><a (click)="editarProduto(i)">{{prod.precovenda}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br><br>
+    </form>
+    <br><br>
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-lg" type="button" name="btnNovo" (click)="novoProduto();">Novo</button>
+      <button class="btn btn-success btn-lg" type="button" name="btnSalvar" (click)="salvaProduto();">Salvar</button>
+      <button class="btn btn-warning btn-lg" type="button" name="btnAlterar" (click)="alteraCadastro();">Alterar</button>
+      <button class="btn btn-primary  btn-lg" type="button" name="btnCancelar" (click)="cancelaEdicao();">Cancelar</button>
+      <button class="btn btn-danger  btn-lg" type="button" name="btnExcluir" (click)="excluiProduto();">Excluir</button>
+    </div>
+  </div>
+</body>

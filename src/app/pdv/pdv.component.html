@@ -1,0 +1,81 @@
+<body>
+  <div id="produto">
+    <label for="produto">Produto</label>
+    <div id="combo" class="btn-group btn-block" dropdown>
+      <button dropdownToggle type="button" class="btn btn-block text-left dropdown-toggle">
+    Selecione... <span class="caret"></span>
+  </button>
+      <ul *dropdownMenu class="dropdown-menu btn-block" role="menu">
+        <li role="menuitem" *ngFor="let prod of produtos;let i=index">
+          <a class="dropdown-item" (click)="selecionaprod(prod.codigo,prod.descricao,prod.precovenda)">{{i+1}} - {{prod.codigo}} | {{prod.descricao}} | {{prod.precovenda}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr/>
+  <div id="esquerda">
+  <div>
+<!--
+    <label>Operador</label>
+    <div id="cmbOper" class="btn-group btn-block" dropdown>
+      <button dropdownToggle type="button" class="btn btn-block text-left dropdown-toggle">
+    Selecione... <span class="caret"></span>
+  </button>
+      <ul *dropdownMenu class="dropdown-menu btn-block" role="menu">
+        <li role="menuitem">
+          <a class="dropdown-item">Operador 1</a>
+          <a class="dropdown-item">Operador 2</a>
+        </li>
+      </ul>
+    </div>
+-->
+  </div> 
+    <div>
+      <label for="prod">Produto</label>
+      <input class="form-control" type="text" name="prod" id="prod" value="{{prodselectdsc}}" disabled/>
+    </div>
+    <div>
+      <label for="quantidade">Quantidade</label>
+      <input class="form-control" type="text" name="quantidade" (keyup.enter)="mudaqtd()" (change)="mudaqtd()" (blur)="mudaqtd()"
+        id="qtd" [(ngModel)]="qtd" />
+    </div>
+    <div>
+      <label for="preco">Preço Venda</label>
+      <input class="form-control" type="text" name="preco" id="pr" value="{{prodselectvlr}}" disabled/>
+    </div>
+    <div>
+      <label for="valor">Valor Item</label>
+      <input class="form-control" type="text" name="valor" id="vlr" value={{prodtvlritem}} disabled/>
+    </div>
+    <hr/>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="addprodvenda(prodselectcod,prodselectdsc,qtd,prodselectvlr,prodtvlritem)">Incluir</button>
+    </div>
+  </div>
+  <div id="direita" style="margin-top: 10%">
+    <table class="table table-striped">
+      <thead>
+        <th>#</th>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Qtd.</th>
+        <th>Vlr Venda</th>
+        <th>Vlr. Total</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prod of prodsVnd;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{prod.cod}}</td>
+          <td>{{prod.desc}}</td>
+          <td>{{prod.qtd}}</td>
+          <td>{{prod.vlr}}</td>
+          <td>{{prod.vlrtot}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="btn-group" style="margin-left: 40%; margin-top: 5%">
+    <button class="btn btn-primary btn-lg" type="button" name="btnSalvar" (click)="salvaVenda();">Salvar</button>
+    <button class="btn btn-warning btn-lg" type="button" name="btnAlterar" (click)="cancelaVenda();">Cancelar</button>
+  </div>
+</body>

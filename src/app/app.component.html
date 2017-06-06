@@ -1,0 +1,21 @@
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Venda Fácil Sistemas</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a [routerLink]="['/home']">Home</a></li>
+        <li><a [routerLink]="['/estab']">Cad. Estabelecimento</a></li>
+        <li><a [routerLink]="['/user']">Cad. Usuários</a></li>
+        <li><a [routerLink]="['/cli']">Cad. Clientes</a></li>
+        <li><a [routerLink]="['/prod']">Cad. Produtos</a></li>
+        <li><a [routerLink]="['/pdv']">Venda</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</body>

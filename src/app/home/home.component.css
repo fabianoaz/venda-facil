@@ -1,0 +1,15 @@
+body {
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+#corpo{
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 10%;
+    overflow: hidden;
+    position: fixed;
+    background-image: url("../icons/bg3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
